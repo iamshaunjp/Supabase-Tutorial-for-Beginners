@@ -32,3 +32,32 @@ nav h1 {
   margin: 20px auto;
   padding: 20px;
 }
+
+/* smoothie grid */
+.smoothie-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+.smoothie-card {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 6px;
+  position: relative;
+}
+.smoothie-card .rating {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 6px;
+  width: 40px;
+  height: 0;
+  padding: 20px 0;
+  line-height: 0px;
+  text-align: center;
+}

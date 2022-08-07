@@ -31,7 +31,7 @@ const Update = () => {
     fetchSmoothie()
   }, [id, navigate])
 
-  return title && (
+  return (
     <div className="page create">
       <form>
         <label htmlFor="title">Title:</label>

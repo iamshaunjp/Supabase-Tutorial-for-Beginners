@@ -6,7 +6,7 @@ const Update = () => {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  const [title, setTitle] = useState(null)
+  const [title, setTitle] = useState('')
   const [method, setMethod] = useState('')
   const [rating, setRating] = useState('')
   const [formError, setFormError] = useState(null)
@@ -54,7 +54,7 @@ const Update = () => {
     fetchSmoothie()
   }, [id, navigate])
 
-  return title !== null && (
+  return (
     <div className="page create">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>

@@ -8,6 +8,15 @@ const Home = () => {
   const [fetchError, setFetchError] = useState(null)
   const [smoothies, setSmoothies] = useState(null)
 
+  const handleDeleteEvent = (payload) => {
+    // console.log(payload)
+    const id = payload.old.id
+
+    setSmoothies(prevSmoothies => {
+      return prevSmoothies.filter(sm => sm.id !== id)
+    })
+  }
+
   useEffect(() => {
     const fetchSmoothies = async () => {
       const { data, error } = await supabase
@@ -25,6 +34,15 @@ const Home = () => {
     }
 
     fetchSmoothies()
+
+    // realtime data
+    const recipeSub = supabase
+      .from('recipes')
+      .on('DELETE', handleDeleteEvent)
+      .subscribe()
+  
+    
+    return () => supabase.removeSubscription(recipeSub)
 
   }, [])
 

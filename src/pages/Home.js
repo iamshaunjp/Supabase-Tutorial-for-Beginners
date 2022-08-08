@@ -7,6 +7,7 @@ import SmoothieCard from '../components/SmoothieCard'
 const Home = () => {
   const [fetchError, setFetchError] = useState(null)
   const [smoothies, setSmoothies] = useState(null)
+  const [orderBy, setOrderBy] = useState('created_at')
 
   const handleDeleteEvent = (payload) => {
     // console.log(payload)
@@ -22,6 +23,7 @@ const Home = () => {
       const { data, error } = await supabase
         .from('recipes')
         .select()
+        .order(orderBy, {ascending: false})
       
       if (error) {
         setFetchError('Could not fetch the smoothies')
@@ -44,14 +46,19 @@ const Home = () => {
     
     return () => supabase.removeSubscription(recipeSub)
 
-  }, [])
+  }, [orderBy])
 
   return (
     <div className="page home">
       {fetchError && (<p>{fetchError}</p>)}
       {smoothies && (
         <div className="smoothies">
-          {/* order-by buttons */}
+          <div className="order-by">
+            <p>Order by:</p>
+            <button onClick={() => setOrderBy('created_at')}>Time Created</button>
+            <button onClick={() => setOrderBy('title')}>Title</button>
+            <button onClick={() => setOrderBy('rating')}>Rating</button>
+          </div>
           <div className="smoothie-grid">
             {smoothies.map(smoothie => (
               <SmoothieCard key={smoothie.id} smoothie={smoothie} />

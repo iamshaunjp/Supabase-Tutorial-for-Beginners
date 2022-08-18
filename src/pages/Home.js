@@ -8,10 +8,7 @@ const Home = () => {
   const [fetchError, setFetchError] = useState(null)
   const [smoothies, setSmoothies] = useState(null)
 
-  const handleDeleteEvent = (payload) => {
-    // console.log(payload)
-    const id = payload.old.id
-
+  const handleDelete = (id) => {
     setSmoothies(prevSmoothies => {
       return prevSmoothies.filter(sm => sm.id !== id)
     })
@@ -35,15 +32,6 @@ const Home = () => {
 
     fetchSmoothies()
 
-    // realtime data
-    const recipeSub = supabase
-      .from('recipes')
-      .on('DELETE', handleDeleteEvent)
-      .subscribe()
-  
-    
-    return () => supabase.removeSubscription(recipeSub)
-
   }, [])
 
   return (
@@ -54,7 +42,7 @@ const Home = () => {
           {/* order-by buttons */}
           <div className="smoothie-grid">
             {smoothies.map(smoothie => (
-              <SmoothieCard key={smoothie.id} smoothie={smoothie} />
+              <SmoothieCard key={smoothie.id} smoothie={smoothie} onDelete={handleDelete} />
             ))}
           </div>
         </div>

@@ -1,34 +1,178 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 :root {
-  --primary: #12bca2;
-  --secondary: #6d15df;
+  --primary: #ff671f;
+  --secondary: #000000;
+  --color-dark: #2C3131;
+  --color-light: #F3F3F2;
 }
+
+#main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 h1,h2,h3 {
   margin: 0;
 }
 
 body {
   margin: 0;
-  color: #333;
-  font-family: 'Poppins';
-  background: #f2f2f2;
+  color: var(--color-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-light);
 }
 nav {
   background: var(--primary);
-  padding: 10px 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 nav a {
-  color: #f2f2f2;
+  color: var(--color-light);
   margin: 10px;
   display: inline-block;
 }
 nav h1 {
-  color: #fff;
+  color: var(--color-light);
 }
 .page {
-  max-width: 1200px;
-  margin: 20px auto;
+  margin: auto;
   padding: 20px;
+}
+
+/* player list */
+.player-list {
+  margin: 20px auto;
+  margin-top: 40px;
+  width: 60%;
+  max-width: 600px;
+  min-width: 350px;
+}
+.player-card {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: var(--color-light);
+  border-radius: 6px;
+  position: relative;
+}
+.player-card .avatar {
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  margin-right: 1em;
+  object-fit: cover;
+  object-position: 100% 0;
+}
+.player-card .name {
+  padding: 4px;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 700;
+  vertical-align: top;
+  position: relative;
+}
+.player-card .number {
+  text-align: left;
+  padding: 4px;
+  font-size: 1rem;
+  font-weight: 300;
+  position: absolute;
+  bottom: 12px;
+  left: 100px;
+}
+.player-card .shots {
+  position: absolute;
+  top: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  right: 10px;
+  color: var(--color-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 0;
+  padding: 20px 0;
+  line-height: 0px;
+  text-align: center;
+}
+
+.player-card .shots a {
+  cursor: default;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.player-card .shots a:visited {
+  cursor: default;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.player-card .shots a:hover {
+  cursor: default;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+.player-card .buttons {
+  text-align: right;
+}
+.player-card i {
+  color: var(--color-light);
+  margin-left: 10px;
+  font-size: 1.2em;
+  padding: 6px;
+  background: var(--color-light);
+  border-radius: 50%;
+  cursor: none;
+}
+
+/* forms */
+form {
+  background: var(--color-light);
+  padding: 20px;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+form input, form textarea {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  border: 1px solid var(--color-light);
+  margin: 24px 0 24px 0;
+}
+form button {
+  background: var(--primary);
+  color: var(--color-light);
+  border: 0;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* order-by buttons */
+.order-by {
+  text-align: center;
+}
+.order-by button {
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid var(--color-light);
+  padding: .5em 2em;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.order-by button:hover {
+  background-color: var(--primary);
+  color: var(--color-light);
 }

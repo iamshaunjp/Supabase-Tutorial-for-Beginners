@@ -10,9 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <nav>
-        <h1>Supa Smoothies</h1>
-        <Link to="/">Home</Link>
-        <Link to="/create">Create New Smoothie</Link>
+        <h1>Shooting Leaderboard</h1>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />

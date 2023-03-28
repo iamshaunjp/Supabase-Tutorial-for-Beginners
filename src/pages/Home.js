@@ -8,13 +8,19 @@ const Home = () => {
     const fetchSmoothies = async () => {
       const { data, error } = await supabase;
       .from("smoothies")
-      .select()
+    .select()
+
   if (error) {
     setFetchError("could not fetch the smoothies")
     setSmoothies(null)
     console.log(error);
   }
-    };
+  if (data) {
+    setSmoothies(data)
+    setFetchError(null)
+  }
+};
+    fetchSmoothies()
   }, []);
 
   return (

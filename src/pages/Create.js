@@ -18,8 +18,9 @@ const Create = () => {
       return;
     }
     console.log(title, rating, method);
+    console.log(title, rating, method);
     const { data, error } = await supabase
-      .from("recipes")
+      .from("smoothies")
       .insert([{ title, method, rating }]);
 
     if (error) {

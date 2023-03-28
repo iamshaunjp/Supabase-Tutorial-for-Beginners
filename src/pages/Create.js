@@ -17,7 +17,7 @@ const Create = () => {
       setFormError("Please fill in all the fields correctly.");
       return;
     }
-
+    console.log(title, rating, method);
     const { data, error } = await supabase
       .from("recipes")
       .insert([{ title, method, rating }]);
